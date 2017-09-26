@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">RestructureApp</string>
+    <string name="app_main">主界面</string>
+    <string name="app_login">登陆</string>
+</resources>
