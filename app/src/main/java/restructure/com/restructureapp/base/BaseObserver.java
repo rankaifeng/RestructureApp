@@ -4,7 +4,6 @@ package restructure.com.restructureapp.base;
 import android.accounts.NetworkErrorException;
 import android.app.Activity;
 import android.net.ParseException;
-import android.util.Log;
 
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSyntaxException;
@@ -72,10 +71,14 @@ public abstract class BaseObserver<T> implements Observer<T> {
                 || t instanceof ParseException) {   //  解析错误
             sb.append("解析错误");
         } else {
-            Log.e("error", t.getMessage());
+            if (activity != null) {
+                ((BaseActivity) activity).showTost(t.getMessage());
+            }
             return;
         }
-        Log.e("error", sb.toString());
+        if (activity != null) {
+            ((BaseActivity) activity).showTost(sb.toString());
+        }
     }
 
     @Override
@@ -84,4 +87,5 @@ public abstract class BaseObserver<T> implements Observer<T> {
     }
 
     public abstract void success(T obj);
+
 }

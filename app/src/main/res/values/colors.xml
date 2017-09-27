@@ -3,7 +3,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-
+    <color name="tost_color">#ffffff</color>
     <color name="system_bar_bg">#1a8acc</color>
     <color name="blue_color">#0079c0</color>
 </resources>

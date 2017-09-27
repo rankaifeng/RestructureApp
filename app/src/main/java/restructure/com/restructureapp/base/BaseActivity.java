@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.Gravity;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -11,6 +12,7 @@ import butterknife.ButterKnife;
 import restructure.com.restructureapp.R;
 import restructure.com.restructureapp.util.ViewUtil;
 import restructure.com.restructureapp.widget.MyDiglog;
+import restructure.com.restructureapp.widget.MyToast;
 
 /**
  * Created by rankaifeng on 2017/9/25.
@@ -76,5 +78,16 @@ public abstract class BaseActivity<V, T extends BasePresenter<V>> extends Activi
         if (mPrster != null) {
             mPrster.detachView();
         }
+    }
+
+    /**
+     * 显示tost
+     *
+     * @param msg
+     */
+    public void showTost(String msg) {
+        MyToast myToast = MyToast.makeText(BaseActivity.this, msg);
+        myToast.setGravity(Gravity.CENTER, 0, 0);
+        myToast.show();
     }
 }
