@@ -13,6 +13,6 @@ import retrofit2.http.POST;
 
 public interface CarAppApi {
     /*登陆*/
-    @POST("user/login")
+    @POST("")
     Observable<UserOut> login(@Body UserIn userIn);
 }
