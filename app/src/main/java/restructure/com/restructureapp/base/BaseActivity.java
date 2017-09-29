@@ -1,9 +1,9 @@
 package restructure.com.restructureapp.base;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentActivity;
 import android.view.Gravity;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -18,7 +18,7 @@ import restructure.com.restructureapp.widget.MyToast;
  * Created by rankaifeng on 2017/9/25.
  */
 
-public abstract class BaseActivity<V, T extends BasePresenter<V>> extends Activity {
+public abstract class BaseActivity<V, T extends BasePresenter<V>> extends FragmentActivity {
     protected T mPrster;
     Dialog progressDlg;
 

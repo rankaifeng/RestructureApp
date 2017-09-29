@@ -3,6 +3,7 @@ package restructure.com.restructureapp.api;
 import android.app.Activity;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
 import io.reactivex.Observer;
@@ -37,7 +38,7 @@ public class RetrofitSP {
     }
 
     public Retrofit getRetrofit(Class type) {
-        OkHttpClient client = new OkHttpClient.Builder().addInterceptor(new Interceptor() {
+        OkHttpClient build = new OkHttpClient.Builder().addInterceptor(new Interceptor() {
             @Override
             public Response intercept(Chain chain) throws IOException {
                 Request newRequest = chain.request().newBuilder()
@@ -46,7 +47,11 @@ public class RetrofitSP {
                         .addHeader("Content-Type", "application/json;charset=UTF-8").build();
                 return chain.proceed(newRequest);
             }
-        }).build();
+        }).connectTimeout(30, TimeUnit.SECONDS)
+                .writeTimeout(30, TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
+                .build();
+        OkHttpClient client = build;
 
 
         Retrofit retrofit = new Retrofit.Builder().baseUrl(Config.TEST_URL)
