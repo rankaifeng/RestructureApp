@@ -11,8 +11,6 @@ import restructure.com.restructureapp.base.BaseLayzFragment;
 public class TwoFragment extends BaseLayzFragment {
     private static final String TAG = TwoFragment.class.getSimpleName();
 
-
-
     @Override
     public void loadDatas() {
         Log.e(TAG, "我是第二个fragment加载。。。。");

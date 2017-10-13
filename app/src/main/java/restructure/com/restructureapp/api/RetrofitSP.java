@@ -38,7 +38,7 @@ public class RetrofitSP {
     }
 
     public Retrofit getRetrofit(Class type) {
-        OkHttpClient build = new OkHttpClient.Builder().addInterceptor(new Interceptor() {
+        OkHttpClient client = new OkHttpClient.Builder().addInterceptor(new Interceptor() {
             @Override
             public Response intercept(Chain chain) throws IOException {
                 Request newRequest = chain.request().newBuilder()
@@ -51,7 +51,6 @@ public class RetrofitSP {
                 .writeTimeout(30, TimeUnit.SECONDS)
                 .readTimeout(30, TimeUnit.SECONDS)
                 .build();
-        OkHttpClient client = build;
 
 
         Retrofit retrofit = new Retrofit.Builder().baseUrl(Config.TEST_URL)
@@ -60,7 +59,7 @@ public class RetrofitSP {
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .client(client)
                 .build();
-
         return retrofit;
     }
+
 }

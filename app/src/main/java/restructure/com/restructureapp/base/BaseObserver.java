@@ -59,10 +59,14 @@ public abstract class BaseObserver<T> implements Observer<T> {
             ((BaseActivity) activity).hideProgress();
         }
         StringBuffer sb = new StringBuffer();
-        sb.append("请求失败：");
-        if (t instanceof NetworkErrorException || t instanceof UnknownHostException || t instanceof ConnectException) {
+        sb.append("请求出错：");
+        if (t instanceof NetworkErrorException ||
+                t instanceof UnknownHostException
+                || t instanceof ConnectException) {
             sb.append("网络异常");
-        } else if (t instanceof SocketTimeoutException || t instanceof InterruptedIOException || t instanceof TimeoutException) {
+        } else if (t instanceof SocketTimeoutException
+                || t instanceof InterruptedIOException
+                || t instanceof TimeoutException) {
             sb.append("请求超时");
         } else if (t instanceof JsonSyntaxException) {
             sb.append("请求不合法");
