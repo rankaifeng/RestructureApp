@@ -37,6 +37,7 @@ public class LoginActivity extends BaseActivity<LoginView, LoginPresenter> imple
                 UserIn userIn1 = new UserIn("13811111555", "E10ADC3949BA59ABBE56E057F20F883E", Config.PLAT_ID);
                 loginPresenter = new LoginPresenter(LoginActivity.this);
                 loginPresenter.login(userIn1, LoginActivity.this);
+//                ChangeActivityUtil.intenMainActivity(LoginActivity.this);
             }
         });
     }

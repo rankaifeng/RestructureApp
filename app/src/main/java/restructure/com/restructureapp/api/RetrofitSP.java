@@ -44,7 +44,8 @@ public class RetrofitSP {
                 Request newRequest = chain.request().newBuilder()
                         .addHeader("OuYeellAuthorization", "android<>A227F7DE402348129E3C1D3F15FF9B4F<>2.3.2.4_beta<>0.0<>0.0")
                         .addHeader("DeviceInfo", "0")
-                        .addHeader("Content-Type", "application/json;charset=UTF-8").build();
+                        .addHeader("Content-Type", "application/json;charset=UTF-8")
+                        .build();
                 return chain.proceed(newRequest);
             }
         }).connectTimeout(30, TimeUnit.SECONDS)

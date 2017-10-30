@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 
-import restructure.com.restructureapp.R;
 import restructure.com.restructureapp.util.ChangeActivityUtil;
 
 /**
@@ -19,22 +18,20 @@ public class AppStart extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.app_start);
         View decorView = getWindow().getDecorView();
         decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);
+    }
 
-        new Thread(new Runnable() {
+    @Override
+    protected void onStart() {
+        super.onStart();
+        getWindow().getDecorView().postDelayed(new Runnable() {
             @Override
             public void run() {
-                try {
-                    Thread.sleep(3000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } finally {
-                    activityUtil.intentLoginActivity(AppStart.this);
-                }
+                activityUtil.intentLoginActivity(AppStart.this);
+                finish();
             }
-        }).start();
+        }, 3000);
     }
 
     @Override
